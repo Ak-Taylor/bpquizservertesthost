@@ -17,6 +17,11 @@ if (!fs.existsSync(DATA_FILE)) {
   fs.writeFileSync(DATA_FILE, "[]", "utf8");
 }
 
+// Health check route for UptimeRobot
+app.get('/',(req,res) => {
+	res.status(200).send('Server is running');
+});
+
 // POST endpoint to receive quiz results
 app.post("/submit", (req, res) => {
   try {
